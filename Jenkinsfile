@@ -8,14 +8,11 @@ pipeline{
                 ls
             }
             post{
-                always{
-                    echo "========always========"
-                }
                 success{
-                    echo "========A executed successfully========"
+                    echo "The build was successful."
                 }
                 failure{
-                    echo "========A execution failed========"
+                    echo "The build has failed."
                 }
             }
         }
