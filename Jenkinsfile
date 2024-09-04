@@ -2,18 +2,16 @@ pipeline{
     agent any;
 
     stages{
-        stage("Repository ls"){
+        stage("Install requirements"){
             steps{
-                echo "Build Id: ${BUILD_ID}"
-                sh "ls"
+                echo "Installing dependencies..."
+                sh "pip3 install -r requirements.txt"
             }
-            post{
-                success{
-                    echo "The build was successful."
-                }
-                failure{
-                    echo "The build has failed."
-                }
+        }
+        stage("Unit testing"){
+            steps{
+                echo "Executing 'test.sh' test script"
+                sh "./test.sh"
             }
         }
     }
