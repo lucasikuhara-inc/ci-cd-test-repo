@@ -5,7 +5,7 @@ pipeline{
         stage("Repository ls"){
             steps{
                 echo "Build Id: ${BUILD_ID}"
-                ls
+                sh "ls"
             }
             post{
                 success{
