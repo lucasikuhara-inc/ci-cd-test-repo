@@ -2,9 +2,10 @@ pipeline{
     agent any;
 
     stages{
-        stage("A"){
+        stage("Repository ls"){
             steps{
-                echo "========executing A========"
+                echo "Build Id: ${BUILD_ID}"
+                ls
             }
             post{
                 always{
@@ -19,15 +20,5 @@ pipeline{
             }
         }
     }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
-        }
-    }
+
 }
