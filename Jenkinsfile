@@ -5,7 +5,7 @@ pipeline{
         stage("Install requirements"){
             steps{
                 echo "Installing dependencies..."
-                sh "pip3 install -r requirements.txt"
+                sh "virtualenv venv --distribute && venv/bin/activate && pip install -r requirements.txt"
             }
         }
         stage("Unit testing"){
