@@ -5,7 +5,7 @@ pipeline{
         stage("Install requirements"){
             steps{
                 echo "Installing dependencies..."
-                sh "export PATH="$HOME/.local/bin:$PATH"; poetry env use && poetry install"
+                sh "export PATH="${HOME}/.local/bin:${PATH}"; poetry env use && poetry install"
             }
         }
         stage("Unit testing"){
