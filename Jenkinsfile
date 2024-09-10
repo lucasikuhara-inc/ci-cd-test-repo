@@ -5,7 +5,7 @@ pipeline{
         stage("Install requirements"){
             steps{
                 echo "Installing dependencies..."
-                sh "virtualenv venv --distribute && venv/bin/activate && pip install -r requirements.txt"
+                sh "poetry env use && poetry install"
             }
         }
         stage("Unit testing"){
